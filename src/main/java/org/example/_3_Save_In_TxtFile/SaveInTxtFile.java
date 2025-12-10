@@ -1,6 +1,6 @@
-package Save_In_TxtFile;
+package org.example._3_Save_In_TxtFile;
 
-import org.example.List_Tree_Directory.DirectoryFormatter;
+import org.example._2_List_Tree_Directory.DirectoryFormatter;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class SaveInTxtFile {
 
     private void walk(Path directory, int depth, Appendable out) throws IOException {
 
-        out.append(org.example.List_Tree_Directory.DirectoryFormatter.formatDirectory(directory, depth));
+        out.append(org.example._2_List_Tree_Directory.DirectoryFormatter.formatDirectory(directory, depth));
 
         try (Stream<Path> stream = Files.list(directory)) {
             for (Path child : stream.sorted(Comparator.comparing(p -> p.getFileName().toString(),

@@ -1,14 +1,12 @@
-package ListAlphabeticallyTheDirectory;
+package org.example._3_Save_In_TxtFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Comparator;
 import java.util.Objects;
-import java.util.stream.Stream;
 
-public class DirectoryAlphabetically {
+public class DirectoryCreator {
 
     public boolean createDirectory(String directoryName) throws IOException {
         Objects.requireNonNull(directoryName, "directoryName cannot be null");
@@ -25,18 +23,4 @@ public class DirectoryAlphabetically {
         System.out.println("Directory created: " + path.toAbsolutePath());
         return true;
     }
-
-    public void listAlphabeticallyTheDirectory(Path listDirectory) throws IOException{
-        if(!Files.isDirectory(listDirectory)){
-            throw new IllegalArgumentException("The File is not a directory");
-        }
-
-        try(Stream<Path> stream = Files.list(listDirectory)){
-            stream.sorted(Comparator.comparing(path -> path.getFileName().toString(), String.CASE_INSENSITIVE_ORDER))
-                    .forEach(path -> System.out.println(path.getFileName()));
-        }
-    }
-
-
-
 }

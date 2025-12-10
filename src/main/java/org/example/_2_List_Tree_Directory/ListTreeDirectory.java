@@ -1,22 +1,17 @@
-package org.example.List_Tree_Directory;
+package org.example._2_List_Tree_Directory;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
 public class ListTreeDirectory {
 
     public boolean createDirectory(String directoryName) throws IOException {
-        Objects.requireNonNull(directoryName, "directoryName cannot be null");
+        Objects.requireNonNull(directoryName, "DirectoryName cannot be null");
         Path path = Paths.get(directoryName);
         if (Files.exists(path)) {
             if (Files.isDirectory(path)) {
