@@ -12,6 +12,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 public class SaveInTxtFile {
+
     public void saveTreeToTxt(Path directory, Path outputTxt) throws IOException {
 
         Objects.requireNonNull(directory, "Directory can't be null");
@@ -34,7 +35,7 @@ public class SaveInTxtFile {
 
     private void walk(Path directory, int depth, Appendable out) throws IOException {
 
-        out.append(org.example._2_List_Tree_Directory.DirectoryFormatter.formatDirectory(directory, depth));
+        out.append(DirectoryFormatter.formatDirectory(directory, depth));
 
         try (Stream<Path> stream = Files.list(directory)) {
             for (Path child : stream.sorted(Comparator.comparing(p -> p.getFileName().toString(),
